@@ -1,0 +1,49 @@
+# Project: Vehicle_Rental_System
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Vehicle.o Truck.o RentalSystem.o Rental.o Motorbike.o Customer.o Car.o
+LINKOBJ  = main.o Vehicle.o Truck.o RentalSystem.o Rental.o Motorbike.o Customer.o Car.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Vehicle_Rental_System.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Vehicle.o: Vehicle.cpp
+	$(CPP) -c Vehicle.cpp -o Vehicle.o $(CXXFLAGS)
+
+Truck.o: Truck.cpp
+	$(CPP) -c Truck.cpp -o Truck.o $(CXXFLAGS)
+
+RentalSystem.o: RentalSystem.cpp
+	$(CPP) -c RentalSystem.cpp -o RentalSystem.o $(CXXFLAGS)
+
+Rental.o: Rental.cpp
+	$(CPP) -c Rental.cpp -o Rental.o $(CXXFLAGS)
+
+Motorbike.o: Motorbike.cpp
+	$(CPP) -c Motorbike.cpp -o Motorbike.o $(CXXFLAGS)
+
+Customer.o: Customer.cpp
+	$(CPP) -c Customer.cpp -o Customer.o $(CXXFLAGS)
+
+Car.o: Car.cpp
+	$(CPP) -c Car.cpp -o Car.o $(CXXFLAGS)
